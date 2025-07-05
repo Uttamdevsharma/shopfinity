@@ -6,6 +6,7 @@ import { getDocs,collection } from 'firebase/firestore';
 const Shop = () => {
 
     const [products,setProducts] = useState([]);
+    
     const productsCollectionRef =  collection(db, 'producsts');
 
 
