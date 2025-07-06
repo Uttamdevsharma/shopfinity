@@ -11,7 +11,15 @@ const Nav = () => {
     </li>
 
     <li>
-        <Link to="/shop">Shop</Link>
+        <Link to="/cart" >Cart</Link>
+    </li>
+
+    <li>
+        <Link to="/login" >Login</Link>
+    </li>
+
+     <li>
+        <Link to="/sign-up" >SignUP</Link>
     </li>
 
     <li>

@@ -1,12 +1,13 @@
 import React, { useState,useEffect } from 'react'
-import db from '../firebase';
+import { db } from '../firebase';
 import { getDocs,collection } from 'firebase/firestore';
+import ProductCard from '../components/ProductCard';
 
 
 const Shop = () => {
 
     const [products,setProducts] = useState([]);
-    
+
     const productsCollectionRef =  collection(db, 'producsts');
 
 
