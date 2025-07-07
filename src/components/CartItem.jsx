@@ -8,6 +8,7 @@ function CartItem({ item }) {
 	
 
 	return (
+		
 		<tr>
 			<td>
 				<div className="product">
