@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../features/Cart";
 
 const Cart = () => {
+	
 	const cart = useSelector((state) => state.cart);
 	const dispatch = useDispatch();
 
