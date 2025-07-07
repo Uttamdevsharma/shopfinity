@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom"
+import { useAuth } from "../contexts/Auth"
+import { signOut } from "firebase/auth"
+import { auth } from "../firebase"
 
 const Nav = () => {
+    const {userLoggedIn , setUserLoggedIn} = useAuth()
   return (
    <>
 
@@ -10,31 +14,42 @@ const Nav = () => {
         <Link to="/">Home</Link>
     </li>
 
-    <li>
-        <Link to="/cart" >Cart</Link>
-    </li>
+    {userLoggedIn && (
+        <li>
+             <Link to="/cart" >Cart</Link>      
+        </li>
+    )}
 
-    <li>
+    {!userLoggedIn && (
+        <>
+        <li>
         <Link to="/login" >Login</Link>
     </li>
 
      <li>
         <Link to="/sign-up" >SignUP</Link>
-    </li>
+    </li> 
+    
+        
+        </>
+    )}
 
-    <li>
+
+    {userLoggedIn && (
+        <>      
+     <li>
         <Link to="/add-product">Add Product</Link>
     </li>
 
+        <li>
+        <button onClick={() => signOut(auth)}>Logout</button>
+       </li>    
+        </>      
+    
 
-    <li>
-        <Link to="/sign-up">Sign Up</Link>
-    </li>
+    )}
 
-
-   </ul>
-   
-   
+   </ul> 
    </>
   )
 }

@@ -6,13 +6,18 @@ import Cart from '../pages/Cart'
 import CartItem from '../components/CartItem'
 import SignupForm from '../pages/SignupForm'
 import Login from '../pages/Login'
+import PrivateRoute from '../components/PrivateRoute'
 
 export const rootRouter =  createBrowserRouter ([
     {
         path: "/", element: <RootLayout/>,
         children: [
             {path: "/",index: true, element: <Shop/>},
-            {path: "/cart", element: <Cart />},
+            {path: "/cart", element: (
+                <PrivateRoute>
+                    <Cart/>
+                </PrivateRoute>
+            )},
             {path: "/sign-up" , element: <SignupForm/>},
             {path: "/login" , element: <Login/>},
 

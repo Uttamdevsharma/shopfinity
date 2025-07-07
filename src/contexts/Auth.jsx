@@ -3,7 +3,6 @@ import { auth,db } from "../firebase";
 import {getDoc,doc} from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 
-
 const AuthContext = createContext();
 
 // eslint-disable-next-line react-refresh/only-export-components
