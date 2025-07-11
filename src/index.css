@@ -386,6 +386,7 @@ textarea {
 
 .header__navbar {
   margin: 0 auto;
+       
 }
 
 .header__navbar ul {
@@ -415,6 +416,21 @@ textarea {
 .header__navbar ul li a:hover {
   color: #175a86;
 }
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: #15b32d;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  color: #178638;
+}
+
+
 
 .banner {
   background: #175a86;

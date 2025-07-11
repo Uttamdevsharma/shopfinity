@@ -10,7 +10,6 @@ const Shop = () => {
 
     const productsCollectionRef =  collection(db, 'producsts');
 
-
     useEffect( () => {
         const getProducts = async () => {
             const data = await getDocs(productsCollectionRef);
@@ -24,7 +23,9 @@ const Shop = () => {
         getProducts();
 
     }, []);
-  return (
+
+
+  return(
     <>
 
     <div className="page-banner">

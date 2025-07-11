@@ -8,14 +8,12 @@ import { store } from './App/store.js'
 import { AuthProvider } from './contexts/Auth.jsx'
 
 createRoot(document.getElementById('root')).render(
-
-  <Provider store = {store}>
+  
+  //store - central data container
+  <Provider store = {store}>  
 
     <AuthProvider>
-      
-
        <RouterProvider router={rootRouter}/> 
-
     </AuthProvider>
 
    
