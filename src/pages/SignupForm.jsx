@@ -23,6 +23,7 @@ const SignupForm = () => {
         setUser({...user , [e.target.name] : e.target.value});
     }
 
+
     const submitHandler = async (e) => {
 
         e.preventDefault();
@@ -75,7 +76,7 @@ const SignupForm = () => {
 					</div>
 					<div className="actions">
 						{!isLoading && <button type="submit">Register</button>}
-						{isLoading && <p>Creating New User</p>}
+						{isLoading && <p>Creating New User..</p>}
 						{errorMessage && (
 							<p style={{ color: "red" }}>{errorMessage}</p>
 						)}

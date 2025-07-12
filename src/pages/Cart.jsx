@@ -7,8 +7,11 @@ const Cart = () => {
 	const cart = useSelector((state) => state.cart);
 	const dispatch = useDispatch();
 
-	let totalPrice = 0;
-	cart.forEach((item) => (totalPrice += item.price * item.quantity));
+	const totalPrice = cart.reduce(
+  (sum, item) => sum + item.price * item.quantity,
+  0
+);
+
 	return (
 		<>
 			<div className="account-setting__content">

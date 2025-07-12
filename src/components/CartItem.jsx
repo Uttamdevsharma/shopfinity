@@ -5,8 +5,6 @@ import { modifyQunantityOfAnItem, removeItemFromCart } from "../features/Cart";
 function CartItem({ item }) {
 	const [itemQuantity, setItemQuantity] = useState(item.quantity);
     const dispatch = useDispatch();
-	
-
 	return (
 		
 		<tr>
