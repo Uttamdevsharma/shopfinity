@@ -6,7 +6,6 @@ import React from 'react'
 const PrivateRoute = ({children}) => {
 
     const {userLoggedIn} =useAuth();
-    
 
     return userLoggedIn ? children : <Navigate to ="/login" /> 
 };

@@ -6,7 +6,6 @@ const ProductCard = ({product}) => {
 
 const dispatch = useDispatch();
 
-
   return (
 
     <div className="ingredient">
@@ -25,7 +24,7 @@ const dispatch = useDispatch();
 			</div>
 			<div className="ingredient__btn">
 				<button
-					onClick={(e) => {
+					onClick={() => {
 						dispatch (addToCart(product))
 					}}
 					className="btn-white"
