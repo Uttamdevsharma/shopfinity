@@ -8,7 +8,7 @@ import { createSlice } from "@reduxjs/toolkit";
         addToCart(state,action){
 
             const product = state.find(
-                (product) => product.id === action.payload.id,
+                (product ) => product.id === action.payload.id,
             );
 
             product ? product.quantity++ : state.push({...action.payload,quantity:1});   
