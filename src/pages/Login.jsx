@@ -72,7 +72,7 @@ const Login = () => {
 				</div>
 				<div className='actions'>
 					{!isLoading && <button type="submit">Login</button>}
-					{isLoading && <p>Sending request...</p>}
+					{isLoading && <p>Sending request..</p>}
 					{errorMessage && (
 						<h3 style={{ color: "red" }}>{errorMessage}</h3>
 					)}
