@@ -1,7 +1,22 @@
-
+import { useState } from "react";
 
 
 const AddProductForm = () => {
+
+    const [product,setProduct] = useState({
+        title:"",
+        description:"",
+        price:"",
+        image:""
+    })
+
+
+    const handleChange = (e) => {
+		setProduct({...product , [e.target.name]: e.target.value});
+        
+    }
+
+
 	
 
 	return (
@@ -27,8 +42,8 @@ const AddProductForm = () => {
 				<p>Price:</p>
 
 				<input
-					// value={product.price}
-					// onChange={handleChange}
+					value={product.price}
+					onChange={handleChange}
 					name="price"
 					style={{ display: "block", width: "80%" }}
 					type="number"
@@ -38,8 +53,8 @@ const AddProductForm = () => {
 
 				<p>Description:</p>
 				<input
-					// value={product.description}
-					// onChange={handleChange}
+					value={product.description}
+					onChange={handleChange}
 					name="description"
 					style={{ display: "block", width: "80%" }}
 					type="text"
@@ -49,8 +64,8 @@ const AddProductForm = () => {
 				<p>Image URL:</p>
 
 				<input
-					// onChange={handleChange}
-					// value={product.image}
+					onChange={handleChange}
+					value={product.image}
 					name="image"
 					style={{ display: "block", width: "80%" }}
 					type="text"
