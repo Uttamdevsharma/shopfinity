@@ -16,9 +16,6 @@ const AddProductForm = () => {
         
     }
 
-
-	
-
 	return (
 		<>
 			<form
@@ -28,7 +25,7 @@ const AddProductForm = () => {
 					justifyContent: "space-between",
 					alignItems: "center",
 				}}
-				// onSubmit={handleSubmit}
+				onSubmit={handleSubmit}
 			>
 				<p>Title:</p>
 				<input
