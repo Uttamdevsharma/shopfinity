@@ -35,7 +35,7 @@ const Nav = () => {
             {userLoggedIn && (
               <>
                 <li>
-                  <Link to="/add-product">Add Product</Link>
+                  <Link to="admin/add-product">Add Product</Link>
                 </li>
                 <li>
                   <button
