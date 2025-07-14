@@ -68,7 +68,7 @@ const AddProductForm = () => {
 					type="text"
 					required
 				/>
-				<br />
+			
 				<input type="submit" />
 			</form>
 		</>
