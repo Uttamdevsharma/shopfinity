@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAddProductMutation } from "../features/api/apiSlice";
 
 
 const AddProductForm = () => {
@@ -10,11 +11,19 @@ const AddProductForm = () => {
         image:""
     })
 
+	const [addProduct] = useAddProductMutation();
+
 
     const handleChange = (e) => {
-		setProduct({...product , [e.target.name]: e.target.value});
-        
+		setProduct({...product , [e.target.name]:
+			 e.target.name === "price" ?
+			  Number(e.target.value) : e.target.value});  
     }
+
+	const submitHandler = async(e) => {
+		e.preventDefault();
+		await addProduct(product);
+	}
 
 	return (
 		<>
@@ -25,12 +34,12 @@ const AddProductForm = () => {
 					justifyContent: "space-between",
 					alignItems: "center",
 				}}
-				onSubmit={handleSubmit}
+				onSubmit={submitHandler}
 			>
 				<p>Title:</p>
 				<input
-					// value={product.title}
-					// onChange={handleChange}
+					value={product.title}
+					onChange={handleChange}
 					name="title"
 					style={{ display: "block", width: "80%" }}
 					required
@@ -68,7 +77,7 @@ const AddProductForm = () => {
 					type="text"
 					required
 				/>
-			
+				<br />
 				<input type="submit" />
 			</form>
 		</>

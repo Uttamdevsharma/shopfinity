@@ -1,28 +1,31 @@
-import React, { useState,useEffect } from 'react'
-import { db } from '../firebase';
-import { getDocs,collection } from 'firebase/firestore';
+// import React, { useState,useEffect } from 'react'
+// import { db } from '../firebase';
+// import { getDocs,collection } from 'firebase/firestore';
 import ProductCard from '../components/ProductCard';
+import { useGetAllProductsQuery } from '../features/api/apiSlice';
 
 
 const Shop = () => {
 
-    const [products,setProducts] = useState([]);
+	const {data: products} = useGetAllProductsQuery();
 
-    const productsCollectionRef =  collection(db, 'producsts');
+    // const [products,setProducts] = useState([]);
 
-    useEffect( () => {
-        const getProducts = async () => {
-            const data = await getDocs(productsCollectionRef);
-            const filderedData = data.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-            }));
-            console.log(filderedData);
-            setProducts(filderedData);
-        };
-        getProducts();
+    // const productsCollectionRef =  collection(db, 'producsts');
 
-    }, []);
+    // useEffect( () => {
+    //     const getProducts = async () => {
+    //         const data = await getDocs(productsCollectionRef);
+    //         const filderedData = data.docs.map((doc) => ({
+    //             id: doc.id,
+    //             ...doc.data(),
+    //         }));
+    //         console.log(filderedData);
+    //         setProducts(filderedData);
+    //     };
+    //     getProducts();
+
+    // }, []);
 
 
   return(
