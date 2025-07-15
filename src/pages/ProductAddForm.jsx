@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { useAddProductMutation } from "../features/api/apiSlice";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 
 const AddProductForm = () => {
+
+	const navigate = useNavigate();
 
     const [product,setProduct] = useState({
         title:"",
@@ -36,13 +40,18 @@ const AddProductForm = () => {
 		);
 		const result = await res.json();
 		console.log(result);
-		setProduct ({...product , imag : result.secure_url},)
+		setProduct ({...product , image : result.secure_url},)
 
 	};
 
 	const submitHandler = async(e) => {
 		e.preventDefault();
+		if(!product.image){
+			toast("Please wait Image is uploading...");
+			return;
+		}
 		await addProduct(product);
+		navigate('/');
 	}
 
 	return (
@@ -97,6 +106,10 @@ const AddProductForm = () => {
 					required
 				/>
 				<br />
+				{product.image && (
+					<img src="{product.image}" alt="" style={{width: '100px',
+						height: '100px'}} />
+				)}
 				<input type="submit" />
 			</form>
 		</>

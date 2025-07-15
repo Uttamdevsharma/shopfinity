@@ -1,5 +1,5 @@
 import { createApi,fakeBaseQuery } from "@reduxjs/toolkit/query/react";
-import { collection,getDocs,addDoc,deleteDoc } from "firebase/firestore";
+import { collection,getDocs,addDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
 
@@ -20,6 +20,7 @@ export const apiSlice = createApi({
                  }));
                  return {data : filderedData , error : null};
 
+                // eslint-disable-next-line no-unused-vars
                 }catch(error){
                     return {error : "Failed to fetch products from db"};
                 }

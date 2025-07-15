@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom"
-import { useAuth } from "../contexts/Auth"
-import { signOut } from "firebase/auth"
-import { auth } from "../firebase"
+import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/Auth";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
 const Nav = () => {
-  const { userLoggedIn, setUserLoggedIn } = useAuth()
+  const { userLoggedIn, role } = useAuth();
 
   return (
     <div className="header">
@@ -16,9 +16,27 @@ const Nav = () => {
             </li>
 
             {userLoggedIn && (
-              <li>
-                <Link to="/cart">Cart</Link>
-              </li>
+              <>
+                <li>
+                  <Link to="/cart">Cart</Link>
+                </li>
+
+                {role === "admin" && (
+                  <li>
+                    <Link to="/admin/add-product">Add Product</Link>
+                  </li>
+                )}
+
+                <li>
+                  <button
+                    onClick={() => {
+                      signOut(auth);
+                    }}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
             )}
 
             {!userLoggedIn && (
@@ -31,29 +49,11 @@ const Nav = () => {
                 </li>
               </>
             )}
-
-            {userLoggedIn && (
-              <>
-                <li>
-                  <Link to="admin/add-product">Add Product</Link>
-                </li>
-                <li>
-                  <button
-                    onClick={() => {
-                      signOut(auth)
-                    }}
-                   
-                  >
-                    Logout
-                  </button>
-                </li>
-              </>
-            )}
           </ul>
         </nav>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
