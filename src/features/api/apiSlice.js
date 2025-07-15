@@ -1,5 +1,5 @@
 import { createApi,fakeBaseQuery } from "@reduxjs/toolkit/query/react";
-import { collection,getDocs,addDoc,doc,deleteDoc } from "firebase/firestore";
+import { collection,getDocs,addDoc,deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
 
@@ -24,9 +24,10 @@ export const apiSlice = createApi({
                     return {error : "Failed to fetch products from db"};
                 }
             },
-            providesTags: ["products"],
+            providesTags: ["products "],
         }),
-        
+    
+
 
         addProduct : builder.mutation({
             queryFn: async(product) => {
