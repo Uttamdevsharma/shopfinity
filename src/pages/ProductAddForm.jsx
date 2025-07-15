@@ -107,8 +107,7 @@ const AddProductForm = () => {
 				/>
 				<br />
 				{product.image && (
-					<img src="{product.image}" alt="" style={{width: '100px',
-						height: '100px'}} />
+					<img src={product.image} alt="" style={{width: '100px', height: '100px'}} />
 				)}
 				<input type="submit" />
 			</form>

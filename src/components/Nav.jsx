@@ -17,10 +17,13 @@ const Nav = () => {
 
             {userLoggedIn && (
               <>
-                <li>
+
+              {role === "user" && (
+                 <li>
                   <Link to="/cart">Cart</Link>
                 </li>
 
+              )}
                 {role === "admin" && (
                   <li>
                     <Link to="/admin/add-product">Add Product</Link>

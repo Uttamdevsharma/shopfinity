@@ -25,7 +25,7 @@ export const apiSlice = createApi({
                     return {error : "Failed to fetch products from db"};
                 }
             },
-            providesTags: ["products "],
+            providesTags: ["products"],
         }),
     
 
