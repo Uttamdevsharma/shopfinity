@@ -20,6 +20,26 @@ const AddProductForm = () => {
 			  Number(e.target.value) : e.target.value});  
     }
 
+	const handleChangeImage = async(e) => {
+		const file = e.target.files[0];
+		console.log(file , "image");	
+		const data = new FormData();
+		data.append("file" ,file);
+		data.append("upload_preset", "simple-app-with-firebase");
+		data.append('cloud_name','dc1gjngnn');
+
+		const res = await fetch(
+			`https://api.cloudinary.com/v1_1/dc1gjngnn/image/upload`,{
+				method : "POST",
+				body : data,
+			}
+		);
+		const result = await res.json();
+		console.log(result);
+		setProduct ({...product , imag : result.secure_url},)
+
+	};
+
 	const submitHandler = async(e) => {
 		e.preventDefault();
 		await addProduct(product);
@@ -69,12 +89,11 @@ const AddProductForm = () => {
 				<br />
 				<p>Image URL:</p>
 
-				<input
-					onChange={handleChange}
-					value={product.image}
+				<input		
 					name="image"
+					onChange={handleChangeImage}
 					style={{ display: "block", width: "80%" }}
-					type="text"
+					type="file"
 					required
 				/>
 				<br />
