@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { addToCart } from '../features/Cart'
 import { useAuth } from '../contexts/Auth'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const ProductCard = ({product}) => {
 
@@ -12,7 +13,6 @@ const ProductCard = ({product}) => {
 const dispatch = useDispatch();
 
   return (
-
     <div className="ingredient">
 			<div className="ingredient__image">
 				<figure>
@@ -31,7 +31,9 @@ const dispatch = useDispatch();
 				<button
 					onClick={() => {
 						!userLoggedIn ? navigate('/login') : 
-						dispatch (addToCart(product))
+						dispatch (addToCart(product)) && (
+							toast("Product is Added...")
+						)
 					}}
 					className="btn-white"
 				>
