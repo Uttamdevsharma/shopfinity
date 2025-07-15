@@ -6,7 +6,7 @@ import { useGetAllProductsQuery } from '../features/api/apiSlice';
 
 
 const Shop = () => {
-
+	
 	const {data: products} = useGetAllProductsQuery();
 
     // const [products,setProducts] = useState([]);

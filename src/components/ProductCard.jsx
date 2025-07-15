@@ -1,8 +1,13 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../features/Cart'
+import { useAuth } from '../contexts/Auth'
+import { useNavigate } from 'react-router-dom'
 
 const ProductCard = ({product}) => {
+
+	const {userLoggedIn} = useAuth();
+	const navigate = useNavigate();
 
 const dispatch = useDispatch();
 
@@ -25,6 +30,7 @@ const dispatch = useDispatch();
 			<div className="ingredient__btn">
 				<button
 					onClick={() => {
+						!userLoggedIn ? navigate('/login') : 
 						dispatch (addToCart(product))
 					}}
 					className="btn-white"
